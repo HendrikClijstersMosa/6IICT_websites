@@ -1,5 +1,9 @@
 body {
+<<<<<<< Updated upstream
     background-image: url("../afbeeldingen/achtergrond.jpg");
+=======
+    background-image: url("../afbeeldingen/griekenland.jpg");
+>>>>>>> Stashed changes
     background-size: cover;
 }
 
