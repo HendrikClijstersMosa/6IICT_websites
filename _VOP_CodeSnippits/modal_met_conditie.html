@@ -1,0 +1,83 @@
+<!-- Header met link naar Bootstrap -->
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<!-- Body met inhoud webpagina -->
+<body>
+    <!-- Script naar JS Bootstrap en JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <!-- Javascript met functie velden_ingevuld. Activeert wanneer je de knop (button) induwt -->
+    <script>
+        function velden_ingevuld() {
+            var voornaam = document.getElementById("voornaam").value;
+            var achternaam = document.getElementById("achternaam").value;
+
+            if (voornaam != "" && achternaam != "") {
+                // JQuery in actie! Het vindt eerst de modal en toont deze vervolgens.
+                // JQuery is een plugin op JS. Met als doel JS coderen makkelijker te maken.
+                // Klik hier voor meer info: https://www.w3schools.com/jquery/jquery_intro.asp
+                $('#exampleModal').modal('show');
+
+                var div = document.getElementById('foutmelding');
+                div.setAttribute("hidden", true);
+            }
+            else {
+                var div = document.getElementById('foutmelding');
+                div.removeAttribute("hidden");
+            }
+        }
+    </script>
+
+    <!-- Plaats alle onderdelen in een Bootstrap Container! -->
+    <div class="container-fluid my-5">
+        <!-- Input velden (bekijk vooral de twee inputs)-->
+        <form action="/action_page.php">
+            <label for="voornaam">Voornaam:</label>
+            <input type="text" id="voornaam" name="voornaam"><br><br>
+            <label for="achternaam">Achternaam:</label>
+            <input type="text" id="achternaam" name="lname"><br><br>
+        </form>
+    </div>
+
+    <!-- Plaats alle onderdelen in een Bootstrap Container! -->
+    <div class="container">
+        <!-- Knop die velden_ingevuld activeert -->
+        <button type="button" id="knop" class="btn btn-primary" onclick="velden_ingevuld()">
+            Launch demo modal
+        </button>
+
+        <!-- Tekst met foutmelding (begint onzichtbaar!) -->
+        <div class="text-danger" id="foutmelding" hidden>DIT IS FOUT</div>
+
+        <!-- Modal (popup venster, begint onzichtbaar. Code in script maakt deze zichtbaar.) -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
